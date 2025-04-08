@@ -22,9 +22,10 @@ Below are links to both the data and the analysis code:
 {% include elements/button.html link="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/python_notebooks/Workbook.ipynb" text="The Analysis" %}
 </div>
 
+
 ## Visualization 1: Interactive Map of Bigfoot Sightings
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/bigfoot_map.json" style="width: 100%"></vegachart>
+<vegachart schema-url="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/assets/json/bigfoot_map.json" style="width: 100%"></vegachart>
 
 This first visualization is an interactive map showing the geographical distribution of bigfoot sightings across the United States from 1950 to 2022. Each point on the map represents a reported sighting, with colors indicating the classification type of the sighting (Class A, Class B, or Class C). 
 
@@ -36,9 +37,10 @@ The interactivity in this visualization comes from the year slider at the top of
 
 This visualization is different from my Homework #5 submission as I did not use this dataset for that assignment, and the interactive approach here focuses on temporal filtering rather than categorical filtering.
 
+
 ## Visualization 2: Seasonal Patterns of Bigfoot Sightings by State
 
-<vegachart schema-url="{{ site.baseurl }}/assets/json/bigfoot_seasonal.json" style="width: 100%"></vegachart>
+<vegachart schema-url="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/assets/json/bigfoot_seasonal.json" style="width: 100%"></vegachart>
 
 The second visualization explores the seasonal patterns of bigfoot sightings across different states. It shows the number of sightings reported in each season (Spring, Summer, Fall, Winter) for a selected state.
 
