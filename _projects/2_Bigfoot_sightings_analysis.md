@@ -57,17 +57,13 @@ Together, these interactive elements transform static visualizations into explor
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  // 加载第一个可视化
   vegaEmbed('#vis1', '{{ site.baseurl }}/assets/json/bigfoot_map.json').then(function(result) {
-    // 访问Vega视图实例
     console.log('Visualization 1 loaded successfully');
   }).catch(function(error) {
     console.error('Error loading visualization 1:', error);
   });
-  
-  // 加载第二个可视化
+
   vegaEmbed('#vis2', '{{ site.baseurl }}/assets/json/bigfoot_seasonal.json').then(function(result) {
-    // 访问Vega视图实例
     console.log('Visualization 2 loaded successfully');
   }).catch(function(error) {
     console.error('Error loading visualization 2:', error);
