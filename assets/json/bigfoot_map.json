@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A map of bigfoot sightings in the US",
+    "width": 800,
+    "height": 500,
+    "layer": [
+      {
+        "data": {
+          "url": "https://cdn.jsdelivr.net/npm/vega-datasets@v1.29.0/data/us-10m.json",
+          "format": {"type": "topojson", "feature": "states"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {"url": "https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/bfro_reports_fall2022.csv"},
+        "transform": [
+          {"filter": "datum.latitude != null && datum.longitude != null"},
+          {"calculate": "year(datum.date)", "as": "year"},
+          {"filter": "datum.year <= yearSlider"}
+        ],
+        "mark": {"type": "circle", "size": 60, "opacity": 0.6},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "color": {
+            "field": "classification", 
+            "type": "nominal", 
+            "scale": {"scheme": "category10"},
+            "legend": {"title": "Classification Type"}
+          },
+          "tooltip": [
+            {"field": "state", "type": "nominal"},
+            {"field": "county", "type": "nominal"},
+            {"field": "year", "type": "quantitative"},
+            {"field": "season", "type": "nominal"},
+            {"field": "classification", "type": "nominal"},
+            {"field": "observed", "type": "nominal"}
+          ]
+        }
+      }
+    ],
+    "params": [
+      {
+        "name": "yearSlider",
+        "value": 2000,
+        "bind": {
+          "input": "range",
+          "min": 1950,
+          "max": 2022,
+          "step": 1,
+          "name": "Year: "
+        }
+      }
+    ],
+    "title": {"text": ["Bigfoot Sightings in the United States", "Drag the slider to filter by year"], "anchor": "middle"}
+  }

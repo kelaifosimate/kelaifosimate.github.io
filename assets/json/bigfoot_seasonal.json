@@ -1,0 +1,60 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Seasonal patterns of bigfoot sightings by state",
+    "width": 600,
+    "height": 400,
+    "data": {"url": "https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/bfro_reports_fall2022.csv"},
+    "transform": [
+      {"filter": "datum.state == stateSelector"},
+      {"aggregate": [{"op": "count", "as": "count"}], "groupby": ["state", "season"]}
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "season", 
+        "type": "nominal", 
+        "sort": ["Spring", "Summer", "Fall", "Winter"],
+        "title": "Season"
+      },
+      "y": {
+        "field": "count", 
+        "type": "quantitative", 
+        "title": "Number of Sightings"
+      },
+      "color": {
+        "field": "season", 
+        "type": "nominal",
+        "scale": {
+          "domain": ["Spring", "Summer", "Fall", "Winter"],
+          "range": ["#A1D99B", "#FC8D59", "#B30000", "#67A9CF"]
+        },
+        "legend": null
+      },
+      "tooltip": [
+        {"field": "state", "type": "nominal"},
+        {"field": "season", "type": "nominal"},
+        {"field": "count", "type": "quantitative"}
+      ]
+    },
+    "params": [
+      {
+        "name": "stateSelector",
+        "value": "CA",
+        "bind": {
+          "input": "select",
+          "options": [
+            "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
+            "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+            "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+            "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+            "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+          ],
+          "name": "State: "
+        }
+      }
+    ],
+    "title": {
+      "text": ["Seasonal Patterns of Bigfoot Sightings", "Select a state from the dropdown menu"], 
+      "anchor": "middle"
+    }
+  }
