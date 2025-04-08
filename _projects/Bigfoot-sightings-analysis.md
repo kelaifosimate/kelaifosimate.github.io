@@ -1,25 +1,31 @@
 ---
 name: Bigfoot Sightings Analysis
 tools: [Python, Altair, vega-lite]
+image: assets/pngs/bigfoot.png
 description: Interactive analysis of geographic and seasonal distribution patterns of Bigfoot sightings across the United States
+custom_js:
+  - vega.min
+  - vega-lite.min
+  - vega-embed.min
 ---
 
 # Bigfoot Sightings Analysis
 
 For this assignment, I analyzed the BFRO (Bigfoot Field Researchers Organization) dataset, which contains reports of bigfoot sightings across the United States. This dataset includes information about the location, date, and details of each reported sighting, along with environmental conditions at the time of the sighting.
 
-<div class="buttons">
-  <div class="button-container">
-    <a href="https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/bfro_reports_fall2022.csv" class="button">The Data</a>
-  </div>
-  <div class="button-container">
-    <a href="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/python_notebooks/Workbook.ipynb" class="button">The Analysis</a>
-  </div>
+Below are links to both the data and the analysis code:
+
+<div class="left">
+{% include elements/button.html link="https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/bfro_reports_fall2022.csv" text="The Data" %}
+</div>
+
+<div class="right">
+{% include elements/button.html link="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/python_notebooks/Workbook.ipynb" text="The Analysis" %}
 </div>
 
 ## Visualization 1: Interactive Map of Bigfoot Sightings
 
-<div id="vis1"></div>
+<vegachart schema-url="{{ site.baseurl }}/assets/json/bigfoot_map.json" style="width: 100%"></vegachart>
 
 This first visualization is an interactive map showing the geographical distribution of bigfoot sightings across the United States from 1950 to 2022. Each point on the map represents a reported sighting, with colors indicating the classification type of the sighting (Class A, Class B, or Class C). 
 
@@ -33,7 +39,7 @@ This visualization is different from my Homework #5 submission as I did not use 
 
 ## Visualization 2: Seasonal Patterns of Bigfoot Sightings by State
 
-<div id="vis2"></div>
+<vegachart schema-url="{{ site.baseurl }}/assets/json/bigfoot_seasonal.json" style="width: 100%"></vegachart>
 
 The second visualization explores the seasonal patterns of bigfoot sightings across different states. It shows the number of sightings reported in each season (Spring, Summer, Fall, Winter) for a selected state.
 
@@ -50,19 +56,3 @@ The interactivity elements in these visualizations significantly enhance the use
 For the seasonal pattern visualization, the state dropdown makes it possible to compare seasonal patterns across different states without creating an overwhelming and cluttered chart that tries to show all states at once. This focused approach allows users to identify whether bigfoot sightings in different regions show similar seasonal patterns or whether they differ based on geography.
 
 Together, these interactive elements transform static visualizations into exploration tools that invite users to engage with the data and discover insights on their own. The combination of geographical, temporal, and categorical dimensions provides a comprehensive view of the bigfoot sighting phenomenon across the United States.
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  // Load the first visualization
-  vegaEmbed('#vis1', '/assets/json/bigfoot_map.json').then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-  
-  // Load the second visualization
-  vegaEmbed('#vis2', '/assets/json/bigfoot_seasonal.json').then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
