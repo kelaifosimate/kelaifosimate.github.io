@@ -8,7 +8,6 @@ custom_js:
   - vega-embed.min
 ---
 
-
 ## Bigfoot Sightings Analysis
 
 For this assignment, I analyzed the BFRO (Bigfoot Field Researchers Organization) dataset, which contains reports of bigfoot sightings across the United States. This dataset includes information about the location, date, and details of each reported sighting, along with environmental conditions at the time of the sighting.
@@ -23,10 +22,9 @@ Below are links to both the data and the analysis code:
 {% include elements/button.html link="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/python_notebooks/Workbook.ipynb" text="The Analysis" %}
 </div>
 
-
 ## Visualization 1: Interactive Map of Bigfoot Sightings
 
-<vegachart schema-url="/assets/json/bigfoot_map.json" style="width: 100%"></vegachart>
+<div id="vis1" style="width: 100%"></div>
 
 This first visualization is an interactive map showing the geographical distribution of bigfoot sightings across the United States from 1950 to 2022. Each point on the map represents a reported sighting, with colors indicating the classification type of the sighting (Class A, Class B, or Class C). 
 
@@ -36,10 +34,9 @@ I performed several data transformations to prepare for this visualization. Firs
 
 The interactivity in this visualization comes from the year slider at the top of the chart. This allows users to filter sightings by year, showing only sightings that occurred before or during the selected year. This temporal filtering helps reveal patterns in the geographical spread of sightings over time, making it possible to observe how reports have expanded or concentrated in different regions over the decades. Additionally, hovering over any point displays a tooltip with detailed information about that specific sighting, including the state, county, year, season, and classification.
 
-
 ## Visualization 2: Seasonal Patterns of Bigfoot Sightings by State
 
-<vegachart schema-url="/assets/json/bigfoot_seasonal.json" style="width: 100%"></vegachart>
+<div id="vis2" style="width: 100%"></div>
 
 The second visualization explores the seasonal patterns of bigfoot sightings across different states. It shows the number of sightings reported in each season (Spring, Summer, Fall, Winter) for a selected state.
 
@@ -48,7 +45,6 @@ For this chart, I used a bar chart encoding with the x-axis representing seasons
 The data transformations for this visualization involved grouping the sightings by state and season, then counting the occurrences in each group. I also ensured that the seasons are displayed in the natural order (Spring, Summer, Fall, Winter) rather than alphabetically, which helps users interpret the seasonal patterns more intuitively.
 
 The interactivity in this visualization is implemented through a state selection dropdown that allows users to select any state to view its seasonal sighting patterns. This interactivity makes the visualization more engaging and allows users to explore patterns specific to their area of interest. The tooltip provides additional information when hovering over each bar, displaying the exact count of sightings for each state-season combination.
-
 
 The interactivity elements in these visualizations significantly enhance the user experience and data exploration capabilities. In the map visualization, the year slider allows users to see how bigfoot sightings have evolved over time, potentially revealing migration patterns or reporting trends. This time-based filtering is much more effective than showing all sightings at once, which would result in overcrowding and make patterns difficult to discern.
 
@@ -59,3 +55,21 @@ Together, these interactive elements transform static visualizations into explor
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  // 加载第一个可视化
+  vegaEmbed('#vis1', '{{ site.baseurl }}/assets/json/bigfoot_map.json').then(function(result) {
+    // 访问Vega视图实例
+    console.log('Visualization 1 loaded successfully');
+  }).catch(function(error) {
+    console.error('Error loading visualization 1:', error);
+  });
+  
+  // 加载第二个可视化
+  vegaEmbed('#vis2', '{{ site.baseurl }}/assets/json/bigfoot_seasonal.json').then(function(result) {
+    // 访问Vega视图实例
+    console.log('Visualization 2 loaded successfully');
+  }).catch(function(error) {
+    console.error('Error loading visualization 2:', error);
+  });
+</script>
