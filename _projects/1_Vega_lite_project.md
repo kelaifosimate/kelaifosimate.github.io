@@ -1,13 +1,7 @@
 ---
-name: Vega Lite Example Project
-tools: [Python, HTML, vega-lite]
-image: assets/pngs/cars.png
-description: This is a "showcase" project that uses vega-lite for interactive viz!
-custom_js:
-  - vega.min
-  - vega-lite.min
-  - vega-embed.min
-  - justcharts
+name: Bigfoot Sightings Analysis
+tools: [Python, Altair, vega-lite]
+description: Interactive analysis of geographic and seasonal distribution patterns of Bigfoot sightings across the United States
 ---
 
 

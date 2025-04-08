@@ -6,13 +6,15 @@ date: 2025-04-07
 
 # Bigfoot Sightings Analysis
 
-## Introduction
-
 For this assignment, I analyzed the BFRO (Bigfoot Field Researchers Organization) dataset, which contains reports of bigfoot sightings across the United States. This dataset includes information about the location, date, and details of each reported sighting, along with environmental conditions at the time of the sighting.
 
 <div class="buttons">
-  <a href="https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/bfro_reports_fall2022.csv" class="button">The Data</a>
-  <a href="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/python_notebooks/bigfoot_analysis.ipynb" class="button">The Analysis</a>
+  <div class="button-container">
+    <a href="https://github.com/UIUC-iSchool-DataViz/is445_data/raw/main/bfro_reports_fall2022.csv" class="button">The Data</a>
+  </div>
+  <div class="button-container">
+    <a href="https://github.com/kelaifosimate/kelaifosimate.github.io/blob/main/python_notebooks/Workbook.ipynb" class="button">The Analysis</a>
+  </div>
 </div>
 
 ## Visualization 1: Interactive Map of Bigfoot Sightings
@@ -42,8 +44,6 @@ The data transformations for this visualization involved grouping the sightings 
 The interactivity in this visualization is implemented through a state selection dropdown that allows users to select any state to view its seasonal sighting patterns. This interactivity makes the visualization more engaging and allows users to explore patterns specific to their area of interest. The tooltip provides additional information when hovering over each bar, displaying the exact count of sightings for each state-season combination.
 
 This visualization differs from any previous homework submissions as it focuses specifically on seasonal patterns, which I had not explored before. The addition of the state selection dropdown provides a new dimension of interactivity that allows for more detailed exploration of the data.
-
-## Discussion of Interactivity
 
 The interactivity elements in these visualizations significantly enhance the user experience and data exploration capabilities. In the map visualization, the year slider allows users to see how bigfoot sightings have evolved over time, potentially revealing migration patterns or reporting trends. This time-based filtering is much more effective than showing all sightings at once, which would result in overcrowding and make patterns difficult to discern.
 
