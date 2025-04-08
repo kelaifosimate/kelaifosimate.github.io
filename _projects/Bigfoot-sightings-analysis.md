@@ -25,7 +25,7 @@ Below are links to both the data and the analysis code:
 
 ## Visualization 1: Interactive Map of Bigfoot Sightings
 
-<vegachart schema-url="/assets/json/bigfoot_map.json" style="width: 100%"></vegachart>
+<div id="vis1"></div>
 
 This first visualization is an interactive map showing the geographical distribution of bigfoot sightings across the United States from 1950 to 2022. Each point on the map represents a reported sighting, with colors indicating the classification type of the sighting (Class A, Class B, or Class C). 
 
@@ -35,12 +35,10 @@ I performed several data transformations to prepare for this visualization. Firs
 
 The interactivity in this visualization comes from the year slider at the top of the chart. This allows users to filter sightings by year, showing only sightings that occurred before or during the selected year. This temporal filtering helps reveal patterns in the geographical spread of sightings over time, making it possible to observe how reports have expanded or concentrated in different regions over the decades. Additionally, hovering over any point displays a tooltip with detailed information about that specific sighting, including the state, county, year, season, and classification.
 
-This visualization is different from my Homework #5 submission as I did not use this dataset for that assignment, and the interactive approach here focuses on temporal filtering rather than categorical filtering.
-
 
 ## Visualization 2: Seasonal Patterns of Bigfoot Sightings by State
 
-<vegachart schema-url="/assets/json/bigfoot_seasonal.json" style="width: 100%"></vegachart>
+<div id="vis2"></div>
 
 The second visualization explores the seasonal patterns of bigfoot sightings across different states. It shows the number of sightings reported in each season (Spring, Summer, Fall, Winter) for a selected state.
 
@@ -50,7 +48,6 @@ The data transformations for this visualization involved grouping the sightings 
 
 The interactivity in this visualization is implemented through a state selection dropdown that allows users to select any state to view its seasonal sighting patterns. This interactivity makes the visualization more engaging and allows users to explore patterns specific to their area of interest. The tooltip provides additional information when hovering over each bar, displaying the exact count of sightings for each state-season combination.
 
-This visualization differs from any previous homework submissions as it focuses specifically on seasonal patterns, which I had not explored before. The addition of the state selection dropdown provides a new dimension of interactivity that allows for more detailed exploration of the data.
 
 The interactivity elements in these visualizations significantly enhance the user experience and data exploration capabilities. In the map visualization, the year slider allows users to see how bigfoot sightings have evolved over time, potentially revealing migration patterns or reporting trends. This time-based filtering is much more effective than showing all sightings at once, which would result in overcrowding and make patterns difficult to discern.
 
@@ -61,3 +58,14 @@ Together, these interactive elements transform static visualizations into explor
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script>
+  // Load the first visualization
+  vegaEmbed('#vis1', '/assets/bigfoot_map.json').then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  // Load the second visualization
+  vegaEmbed('#vis2', '/assets/bigfoot_seasonal.json').then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
