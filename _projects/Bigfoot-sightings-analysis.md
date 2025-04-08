@@ -1,7 +1,7 @@
 ---
-layout: post
-title: "Bigfoot Sightings Analysis: Interactive Visualizations"
-date: 2025-04-07
+name: Bigfoot Sightings Analysis
+tools: [Python, Altair, vega-lite]
+description: Interactive analysis of geographic and seasonal distribution patterns of Bigfoot sightings across the United States
 ---
 
 # Bigfoot Sightings Analysis
