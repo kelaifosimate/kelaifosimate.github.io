@@ -56,3 +56,7 @@ The interactivity elements in these visualizations significantly enhance the use
 For the seasonal pattern visualization, the state dropdown makes it possible to compare seasonal patterns across different states without creating an overwhelming and cluttered chart that tries to show all states at once. This focused approach allows users to identify whether bigfoot sightings in different regions show similar seasonal patterns or whether they differ based on geography.
 
 Together, these interactive elements transform static visualizations into exploration tools that invite users to engage with the data and discover insights on their own. The combination of geographical, temporal, and categorical dimensions provides a comprehensive view of the bigfoot sighting phenomenon across the United States.
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
